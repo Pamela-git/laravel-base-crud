@@ -29,7 +29,7 @@
     <br>
 
 
-    <label for="name">Consumo</label>
+    <label for="name">Consumo in kw</label>
     <input type="text" name="consumption" value="">
 
     <input type="submit" name="" value="Aggiungi">
