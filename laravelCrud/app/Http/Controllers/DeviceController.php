@@ -27,7 +27,22 @@ class DeviceController extends Controller
   public function store(Request $request)
   {
     // dd($request -> all());
-    Device::create($request -> all());
+
+    // soluzione senza conversione wattaggio:
+
+    // Device::create($request -> all());
+    // return redirect() -> route('devices-index');
+
+    // prova per avere l'input in kw convertito in watt:
+    $device = new Device;
+
+    $device -> name = $request -> get('name');
+    $device -> model = $request -> get('model');
+    $device -> price = $request -> get('price');
+    $device -> consumption = $request -> get('consumption') * 1000;
+
+    $device -> save();
     return redirect() -> route('devices-index');
+
   }
 }
